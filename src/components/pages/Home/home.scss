@@ -1,0 +1,69 @@
+@import "../../../styles.scss";
+
+.home {
+  &_header {
+    margin: 1em auto;
+    width: calc(100% - 1em);
+    height: 25em;
+    background-image: url("https://www.si.com/.image/t_share/MTc4OTY3NzUwODU1NjMyMzkx/2021-nba-allstar-pred-2.jpg");
+    background-position: top center;
+    background-size: cover;
+    border-radius: 4px;
+  }
+  &_section {
+    margin: 2.5em auto;
+    width: calc(100% - 1em);
+  }
+
+  &_dynamic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    a {
+      text-decoration: none;
+    }
+    &-item {
+      height: 8em;
+      font-family: var(--BarlowFont);
+      color: #fff;
+      margin: 0 0.25em;
+      border-radius: 5px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1 1 auto;
+      font-size: 1em;
+      transition: all 300ms ease-in-out;
+
+      &:hover {
+        transition: all 300ms ease-in-out;
+        padding: 0 40px;
+      }
+    }
+  }
+}
+
+.hex {
+  &_1 {
+    background-image: linear-gradient(
+      61.63deg,
+      #ff497b -15.05%,
+      #3c4af7 104.96%
+    );
+  }
+  &_2 {
+    background-image: linear-gradient(
+      61.63deg,
+      #f7b732 -15.05%,
+      #456af1 104.96%
+    );
+  }
+  &_3 {
+    background-image: linear-gradient(
+      61.63deg,
+      #f7327d -15.05%,
+      #f1d745 104.96%
+    );
+  }
+}

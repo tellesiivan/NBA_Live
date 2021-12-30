@@ -1,0 +1,115 @@
+@import "../../styles.scss";
+.notification {
+  width: 380px;
+  position: absolute;
+  bottom: 10px;
+  z-index: 99;
+  left: 80px;
+  background-color: var(--notiBC);
+  backdrop-filter: blur(4px);
+  border-radius: 4px;
+  transition: all 0.4s ease-in-out;
+  transform: translateX(0%);
+
+  &-inner {
+    height: 100%;
+    width: 100%;
+    position: relative;
+  }
+  &-top {
+    padding: 5px 0px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-close {
+    cursor: pointer;
+    span {
+      color: var(--calendarTextColor);
+      font-size: 0.87em;
+      font-family: var(--BarlowFont);
+      border-radius: 4px;
+      padding: 2px 6px;
+    }
+  }
+  &-label {
+    font-size: 0.87em;
+    font-family: var(--BarlowFont);
+    padding: 2px 6px;
+    display: flex;
+    align-items: center;
+
+    h4 {
+      font-size: 0.95em;
+      margin: 0;
+      font-family: var(--BarlowFont);
+      color: var(--inverseC);
+    }
+
+    svg {
+      fill: var(--ActiveLinkColor);
+    }
+
+    span {
+      margin-right: 5px;
+      color: var(--calendarTextColor);
+      font-size: 0.84em;
+    }
+  }
+  &-info {
+    align-items: center;
+
+    display: flex;
+    flex-direction: row;
+    font-family: var(--BarlowFont);
+    color: var(--ActiveLinkColor);
+  }
+  &-team {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    padding: 15px 0;
+
+    &:last-child {
+      flex-direction: row-reverse;
+    }
+
+    &-info {
+      display: flex;
+      flex-direction: column;
+
+      img {
+        max-width: 30px;
+      }
+      span {
+        font-size: 0.85em;
+        margin-top: 5px;
+        color: var(--inverseC) !important;
+      }
+    }
+
+    &-score {
+      color: var(--inverseC) !important;
+    }
+  }
+}
+.second-t {
+  align-items: flex-end;
+}
+.opted-out {
+  visibility: hidden;
+  transform: translateX(-200%);
+  transition: all 0.3s ease-in-out;
+}
+@media (max-width: 700px) {
+  .notification {
+    width: calc(100% - 24%);
+
+    bottom: 85px;
+    z-index: 99;
+    left: 12%;
+  }
+}

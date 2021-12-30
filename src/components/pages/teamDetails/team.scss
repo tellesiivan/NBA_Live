@@ -1,0 +1,385 @@
+@import "../../../styles.scss";
+
+.teamDash {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow-x: hidden;
+}
+.dashLeft {
+  transition: all 0.5s ease-in-out;
+  width: 100%;
+  background-color: var(--dashLeftColor);
+  overflow-y: scroll;
+  max-height: 100%;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.dashRight {
+  flex: 1;
+  padding: 10px;
+  transition: all 0.5s ease-in-out;
+  transform: translateX(200%);
+  position: absolute;
+  width: 400px;
+  z-index: 6;
+  right: 0;
+  height: 100%;
+
+  background-color: var(--dashRightColor);
+  border-left: 1px solid #333;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+    width: 4px;
+  }
+}
+.dashLeftHead {
+  height: 26em;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+
+  &-action {
+    position: absolute;
+    bottom: 30px;
+    right: 10px;
+    z-index: 3;
+
+    button {
+      font-family: var(--BarlowFont);
+      border: none;
+      height: 2em;
+      display: flex;
+      padding: 0 15px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-family: inherit;
+      background-color: var(--inverseC);
+      color: var(--mainBC);
+      cursor: pointer;
+      align-items: center;
+      transition: all 0.3s ease-in-out;
+      span {
+        height: 10px;
+        width: 10px;
+        background-color: var(--submitBTNcolor);
+        margin-right: 10px;
+        border-radius: 100px;
+        transition: all 0.6s ease-in-out;
+      }
+      &:hover {
+        background-color: var(--bodyBC);
+        color: var(--inverseC);
+
+        span {
+          background-color: var(--highlightC);
+        }
+      }
+    }
+  }
+}
+.dashLeftHeadAbs {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(
+    to bottom,
+    var(--dashLeftHeaderColor1),
+    var(--dashLeftHeaderColor1),
+    var(--dashLeftHeaderColor2),
+    var(--dashLeftColor)
+  );
+
+  z-index: 2;
+}
+.dashLeftHeadIntro {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 3;
+}
+.dashLeftHeadIntro span {
+  font-size: 1.2em;
+  color: var(--inverseC);
+}
+.dashLeftHeadIntro h3 {
+  font-size: 2.6em;
+  background: conic-gradient(
+    #ca4246 16.666%,
+    #fcf700 16.666%,
+    #e16541 33.333%,
+    #ff6f00 33.333%,
+    #a0f143 50%,
+    #b4e21b 50%,
+    #8b9862 66.666%,
+    #0571ff 66.666%,
+    #ffd000 83.333%,
+    #a7489b 83.333%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 8px 0;
+}
+.dashLeftDesc p {
+  color: var(--dashLeftP);
+  font-size: 0.9em;
+  text-align: justify;
+  padding: 0 5px;
+}
+.dashLeftPlayers {
+  padding: 10px;
+  margin-bottom: 20px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 4px;
+  }
+}
+/*  Players  */
+
+.playersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.playerItem {
+  width: calc(50% - 1em);
+  padding: 20px 10px;
+  background-color: var(--playerItemC);
+  margin: 0.5em 0.25em;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9em;
+}
+.playerItem p {
+  margin: 0;
+  color: var(--playerItemP);
+}
+.playerItem span {
+  color: var(--playerItemSPAN);
+}
+
+// upcoming games
+.upcomingGame {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin: 0.75em 0;
+  padding: 20px 15px;
+  background-color: var(--mainBC);
+
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  &:hover {
+    background-color: var(--playerItemC);
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+  &-team {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    span {
+      margin-top: 8px;
+      color: var(--playerItemSPAN);
+      font-weight: 400;
+      font-size: 0.85em;
+      font-family: var(--BarlowFont);
+    }
+  }
+  &-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-time {
+      font-weight: 600;
+      color: var(--inverseC);
+      font-size: 0.93em;
+      font-family: var(--BarlowFont);
+    }
+    &-date {
+      font-size: 0.8em;
+      color: var(--playerItemSPAN);
+    }
+  }
+}
+.label {
+  position: sticky;
+  top: -5px;
+  left: 30%;
+  padding: 4px 12px;
+  background-color: var(--dashRightColor);
+  border: var(--calendarBorder);
+  border-radius: 100px;
+  font-size: 0.8em;
+  color: var(--hoverLinkColor);
+}
+
+.gameTeam img {
+  max-width: 35px;
+}
+
+// previous games
+.previous {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+
+  &-item {
+    margin: 0.75em 0;
+    padding: 20px 15px;
+    background-color: var(--mainBC);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: var(--playerItemC);
+    }
+  }
+
+  &-team {
+    display: flex;
+    margin-top: 0.75em;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0.75em;
+    padding-right: 15px;
+    align-items: center;
+
+    span {
+      font-size: 0.8em;
+      color: var(--playerItemSPAN);
+      margin-top: 10px;
+      font-family: var(--BarlowFont);
+    }
+  }
+  &-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &-right {
+    color: var(--playerItemSPAN);
+  }
+
+  &-info {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &-score {
+      width: 80%;
+      border-right: var(--calendarBorder);
+      font-family: var(--BarlowFont);
+      display: flex;
+      flex-direction: column;
+    }
+    &-status {
+      padding: 0 15px;
+      flex: 1;
+      text-align: center;
+      color: var(--playerItemSPAN);
+    }
+  }
+  &-details {
+    margin-top: 1em;
+    width: 100%;
+
+    text-align: center;
+    color: #3c3c3c;
+    font-size: 0.8em;
+    border-radius: 6px;
+  }
+}
+.bold {
+  color: var(--inverseC);
+  font-weight: 600;
+}
+
+// .seakGeek {
+//   height: 4em;
+//   position: fixed;
+//   width: 25%;
+//   left: 50%;
+//   bottom: 15px;
+//   background-color: #f85b4a;
+//   border-radius: 6px;
+//   transform: translate(-90%, 0);
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+/// responsive \
+
+@media (min-width: 1200px) {
+  .dashLeft {
+    width: 70%;
+  }
+  .dashRight {
+    flex: 1 auto;
+    position: unset !important;
+    transition: all 0.7s ease-in-out;
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  .dashLeftHead {
+    &-action {
+      button {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .dashLeftPlayers {
+    padding: 10px 5px;
+  }
+  .dashLeftHead-action {
+    bottom: 85px;
+  }
+  .dashLeftDesc p {
+    padding-bottom: 85px;
+  }
+  .dashRight {
+    position: fixed;
+    height: 75vh;
+    bottom: 0;
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+    transform: translateY(200%);
+  }
+  .label {
+    left: 35%;
+  }
+  .playerItem {
+    width: 100%;
+    padding: 30px 10px;
+    background-color: var(--playerItemC);
+    margin: 0.25em 0em;
+    border-radius: 3px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.9em;
+  }
+}

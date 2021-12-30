@@ -1,0 +1,94 @@
+@import "../../../styles.scss";
+
+.teams {
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(100% - 20px);
+
+  margin: 20px 10px;
+}
+.teamRadio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.teamRadio:checked + img {
+  background-color: var(--PrimaryC);
+  padding: 30px;
+  border-radius: 100px;
+  height: 9em;
+  width: 9em;
+}
+.team img:hover {
+  background-color: var(--PrimaryC);
+}
+
+.team img {
+  cursor: pointer;
+  background-color: var(--teamImgC);
+  border: 6px solid transparent;
+  height: 9em;
+  width: 9em;
+  padding: 30px;
+  border-radius: 100px;
+}
+.team {
+  margin: 10px;
+  flex: 15%;
+  text-align: center;
+}
+.submit {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 15px 25px;
+  background-image: linear-gradient(61.63deg, #ff497b -15.05%, #3c4af7 104.96%);
+  transition: all 0.4s ease;
+  color: var(--ActiveLinkColor) !important;
+  font-family: var(--BarlowFont);
+  position: fixed;
+  top: 0;
+  width: calc(100% - 70px);
+  left: 70px;
+  font-size: 1.1em;
+  justify-content: space-between;
+  align-items: center;
+  display: inline-flex;
+  visibility: visible;
+  opacity: 1;
+
+  &:hover {
+    background-image: linear-gradient(
+      61.63deg,
+      #f7b732 -15.05%,
+      #456af1 104.96%
+    );
+  }
+
+  &:hover &-span {
+    background-color: var(--inverseC);
+    color: var(--PrimaryC);
+  }
+
+  &-span {
+    padding: 5px 18px;
+    background-color: var(--PrimaryC);
+    color: var(--ActiveLinkColor);
+    border-radius: 3px;
+  }
+}
+.hide {
+  opacity: 0.5;
+  transform: translate(400%, -50%);
+  visibility: hidden;
+  opacity: 0;
+}
+// Example usage:
+@media (max-width: 700px) {
+  .submit {
+    width: 100%;
+    left: 0px;
+    font-size: 1em;
+  }
+}

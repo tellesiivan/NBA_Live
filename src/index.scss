@@ -1,0 +1,373 @@
+@import "./styles.scss";
+* {
+  box-sizing: border-box;
+  transition: color 0.5s ease-in-out;
+  transition: background-color 0.8s ease-in-out;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+body {
+  font-family: var(--poppins);
+  background-color: var(--bodyBC);
+  position: relative;
+
+  height: 100%;
+
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+}
+.sideNav {
+  width: 70px;
+  height: 100vh;
+  padding: 20px;
+  background-color: var(--standOutNav);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: var(--sideNavBorder);
+}
+
+.main {
+  width: calc(100% - 70px);
+  background-color: var(--mainBC);
+  max-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.flex-bottom {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/*PLACEHOLDER FOR SKELETON LOAD*/
+.sKactive {
+  display: flex;
+}
+.placeholder-item {
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  height: auto;
+  min-height: 1rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  width: 100%;
+  padding: 5px 10px;
+}
+
+.placeholder-item span {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0.5rem 0;
+  background: var(--bodyBC);
+
+  border-radius: 4px;
+}
+.scores-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px 0px;
+  width: 100%;
+}
+.scores-container span {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0.5rem 0;
+  background: var(--bodyBC);
+  height: 10em;
+  border-radius: 4px !important;
+}
+.players-container {
+  flex-wrap: wrap;
+  padding: 20px 10px;
+  margin: 0.5em 0.25em;
+  border-radius: 4px;
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.players-container span {
+  width: calc(50% - 0.5em);
+  margin: 0.25rem 0 !important;
+  height: 3em;
+}
+.team-games {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.team-games span {
+  width: 100%;
+  margin: 0.25rem 0 !important;
+  height: 4em;
+}
+.team-games-big {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.team-games-big span {
+  height: 10em;
+  width: 100%;
+  margin: 0.35rem 0 !important;
+}
+.span-btn {
+  height: 0.5em;
+}
+.span-head {
+  width: 200px !important;
+  height: 1em;
+  margin: 10px 0.5rem !important;
+}
+
+.span-header {
+  height: 24rem;
+  margin: 4px 0.5rem !important;
+}
+.span-text-item {
+  height: 5px;
+  margin: 4px 0.5rem !important;
+}
+
+.placeholder-item span::after {
+  display: block;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-110%);
+  background: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(transparent),
+    color-stop(var(--skeletonC1)),
+    to(transparent)
+  );
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--skeletonC2),
+    transparent
+  );
+
+  /* Adding animation */
+  animation: loading 1.2s infinite;
+}
+
+/* Loading Animation */
+@keyframes loading {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// error messages
+
+.errorMessage {
+  &-date {
+    height: 8em;
+    width: 100%;
+    margin-top: 1em;
+    padding: 0 10px;
+    font-size: 0.94em;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 400;
+    flex-direction: column;
+    font-family: var(--BarlowFont);
+    background-color: var(--dashLeftColor);
+    border-radius: 3px;
+    border: var(--sideNavBorder);
+    color: var(--inverseC);
+    justify-content: center;
+
+    h4 {
+      margin: 0 0 5px 0;
+    }
+  }
+}
+
+// Messages {other}
+.message {
+  &-selectTeam {
+    height: 14em;
+    width: 99%;
+    background-color: var(--submitBTNcolor);
+    margin: 2.5em auto;
+    position: relative;
+    display: flex;
+
+    &-img {
+      width: 70%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-image: url("https://thumbor.forbes.com/thumbor/3875x2010/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5e42ca594637aa0007e87b31%2Fhero-nba-teams-lebron-harden-curry-leonard-kyrie-Anton-Klusener%2F0x0.jpg%3FcropX1%3D51%26cropX2%3D3926%26cropY1%3D166%26cropY2%3D2176");
+    }
+    &-txt {
+      flex: 1 auto;
+      display: flex;
+      justify-content: center;
+      text-align: end;
+      align-items: center;
+      font-family: var(--BarlowFont);
+
+      h4 {
+        color: var(--inverseC);
+        margin: 0 0 8px 0;
+        text-transform: capitalize;
+        font-size: 1.3em;
+      }
+      span {
+        color: var(--playerItemSPAN);
+      }
+      a {
+        width: 100%;
+      }
+      button {
+        background-color: var(--submitBTNcolor);
+        color: var(--inverseC);
+        padding: 10px 5px;
+        width: 100%;
+        border: none;
+        margin-top: 1.3em;
+        cursor: pointer;
+      }
+
+      &-c {
+        margin: 0 1em 0 0;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+}
+// Settings : hide scores
+.hide-scores {
+  height: 0.5em;
+  border-radius: 100px;
+  width: 60px;
+  background-color: var(--SLinkColor);
+
+  &-alt {
+    height: 0.5em;
+    border-radius: 100px;
+    width: 30px;
+    background-color: var(--teamImgC);
+  }
+}
+
+// Active trigger events
+.active_btnClick {
+  transform: translateX(0%) !important;
+  opacity: 1 !important;
+}
+// modal
+@media (max-width: 1200px) {
+  .modal {
+    display: none;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #00000094;
+    z-index: 5;
+
+    &_active {
+      display: block;
+    }
+  }
+}
+.mobile-nav {
+  display: none !important;
+}
+@media (max-width: 700px) {
+  .sideNav {
+    display: none;
+  }
+  .flex-bottom {
+    display: unset;
+    flex-direction: unset;
+    height: 100vh;
+  }
+  .main {
+    width: 100%;
+    height: 100vh;
+  }
+  .mobile-nav {
+    display: flex !important;
+    align-content: center;
+    position: fixed;
+    bottom: 0;
+    height: calc(3em + 10px);
+    width: calc(100% - 2em);
+    margin: 1em;
+    z-index: 6;
+    border: var(--calendarBorder);
+    border-radius: 100px;
+    background-color: var(--standOutNav);
+    transition: all 0.3s ease-in-out;
+
+    &-ra {
+      margin: 5px 10px;
+      width: calc(100% - 20px);
+      border-radius: 100px;
+      height: 3em;
+    }
+    ul {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      margin: 0px;
+      height: 100%;
+      padding: 0px;
+      align-items: center;
+    }
+    li {
+      cursor: pointer;
+      list-style: none;
+      height: 100%;
+      display: inline-flex;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      border-right: var(--sideNavBorder);
+
+      &:last-child {
+        border-right: none;
+      }
+      a {
+        color: rgba(255, 255, 255, 0.459);
+        text-decoration: none;
+      }
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;300;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+:root {
+  --bodyBC: #091b2b;
+  --PrimaryC: #0a1a29;
+  --inverseC: #fff;
+  --highlightC: #f7b732;
+  --sideNavBorder: 1px solid rgb(36 43 62);
+  --mainBC: #06151e;
+  --hoverLinkColor: rgb(165, 165, 165);
+  --SLinkColor: #313d5c;
+  --ActiveLinkBC: #222b42;
+  --ActiveLinkColor: rgb(255, 255, 255);
+  --teamImgC: #0c0f18;
+  --submitBTNcolor: #3848fce3;
+  --submitBTNshadow: 0px 0px 12px 7px #3848fc59;
+  --submitBTNhoverC: rgb(0 0 0);
+  --dashLeftColor: #0f101c;
+  --dashLeftHeaderColor1: rgb(15 17 31 / 19%);
+  --dashLeftHeaderColor2: rgba(34, 34, 34, 0.5);
+  --dashRightColor: #151a26;
+  --dashLeftP: #c4c4c4;
+  --playersC: #010f16;
+  --playerItemC: rgb(17, 23, 34);
+  --playerItemP: rgb(84 84 84);
+  --playerItemSPAN: rgb(182, 182, 182);
+  --BarlowFont: "Barlow", sans-serif;
+  --poppins: "Poppins", sans-serif;
+  --calendarTextColor: rgb(160, 160, 160);
+  --calendarHoverBC: rgb(19, 19, 19);
+  --calendarBorder: 1px solid rgb(35 45 70);
+  --eventMainBc: #061420;
+  // skeleton background
+  --skeletonC1: rgba(7, 7, 7, 0.116);
+  --skeletonC2: rgba(109, 109, 109, 0.11);
+  // stand out
+  --standOutNav: #0a1a29;
+  --notiBC: rgba(10, 9, 9, 0.582);
+}
+.light-mode {
+  --bodyBC: #e2e2e2;
+  --sideNavBC: rgb(255, 255, 255);
+  --PrimaryC: #fff;
+  --inverseC: #000;
+  --highlightC: #7437fa;
+  --sideNavBorder: 1px solid #363636;
+  --mainBC: #f5f5f5;
+  // side nav
+  --hoverLinkColor: #e3e3e3bd;
+  --SLinkColor: #c1c1c194;
+  --ActiveLinkBC: #fff7e9;
+  --ActiveLinkColor: var(--PrimaryC);
+  //teams page
+  --teamImgC: #ededed;
+  --submitBTNcolor: #f81a79;
+  --submitBTNshadow: 0px 0px 12px 7px #faaf37af;
+  --submitBTNhoverC: #f90f73;
+  //team page
+  --dashLeftColor: rgb(240, 240, 240);
+  --dashLeftHeaderColor1: rgba(218, 218, 218, 0);
+  --dashLeftHeaderColor2: rgba(230, 230, 230, 0.5);
+  --dashRightColor: #fdfdfd;
+  --dashLeftP: #474747;
+  --playersC: #e0e0e0;
+  --playerItemC: rgb(250, 250, 250);
+  --playerItemP: rgb(114, 114, 114);
+  --playerItemSPAN: rgb(112, 112, 112);
+  // fonts
+  --BarlowFont: "Barlow", sans-serif;
+  --poppins: "Poppins", sans-serif;
+  // calendar
+  --calendarTextColor: rgb(160, 160, 160);
+  --calendarHoverBC: rgb(19, 19, 19);
+  --calendarBorder: 1px solid rgb(216, 216, 216);
+  --eventMainBc: #f7f7f7;
+  // skeleton background
+  --skeletonC1: rgba(185, 185, 185, 0.212);
+  --skeletonC2: rgba(151, 151, 151, 0.11);
+  --standOutNav: #17408b;
+  --notiBC: rgba(255, 255, 255, 0.582);
+}

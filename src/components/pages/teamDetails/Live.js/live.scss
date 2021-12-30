@@ -1,0 +1,152 @@
+@import "../../../../styles.scss";
+.live {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+  width: 100%;
+
+  &-team {
+    display: flex;
+    flex-direction: column;
+
+    img {
+      max-width: 60px;
+    }
+    span {
+      text-align: center;
+      margin-top: 10px;
+      color: var(--inverseC);
+      font-size: 1em;
+    }
+  }
+  &-center {
+    span {
+      font-size: 2.3em;
+      font-weight: 500;
+      color: var(--inverseC);
+      transition: all 0.3s ease-in-out;
+      font-family: var(--BarlowFont);
+    }
+    &-sep {
+      margin: 0 1em;
+    }
+  }
+
+  &-event {
+    height: 13em;
+    margin: 1em auto;
+
+    background-color: var(--dashRightColor);
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 98%;
+    &-item {
+      width: 100%;
+    }
+  }
+}
+.bold {
+  color: var(--inverseC);
+  font-weight: 600 !important;
+}
+
+.live-indicator {
+  font-size: 0.85em;
+  font-weight: 600;
+  color: var(--highlightC);
+  letter-spacing: 0.3px;
+  display: inline-block;
+  position: absolute;
+  font-family: sans-serif;
+  top: 10px;
+  right: 15px;
+}
+
+.live-indicator__bar__mask {
+  overflow: hidden;
+}
+
+.live-indicator__bar__wrap {
+  width: 200%;
+  line-height: 0;
+  border-radius: 100px;
+  animation: indicator-wrapper-animation 1.6s 1.4s infinite alternate
+    cubic-bezier(0.21, 0.85, 0.34, 0.98);
+}
+
+.live-indicator__bar {
+  height: 2px;
+  float: left;
+  background-color: var(--highlightC);
+  border-radius: 100px;
+  width: 50%;
+  -webkit-transform-origin: left;
+  -webkit-transform: scaleX(0);
+  animation: live-indicator-length-animation 1.6s 1.4s infinite alternate
+    cubic-bezier(0.87, 0.01, 0.87, 0.5);
+}
+
+@keyframes live-indicator-length-animation {
+  0% {
+    -webkit-transform: scaleX(0);
+  }
+  50% {
+    -webkit-transform: scaleX(1);
+  }
+}
+
+@keyframes indicator-wrapper-animation {
+  0% {
+    -webkit-transform: translateX(0%);
+    margin-left: 0px;
+  }
+  50% {
+    -webkit-transform: translateX(0%);
+    margin-left: 0px;
+  }
+  100% {
+    -webkit-transform: translateX(50%);
+    margin-left: -2px;
+  }
+}
+.hideContent {
+  display: none;
+}
+
+// suggested live events for teams with no current live event
+.sugg-item {
+  height: 9em;
+  text-align: center;
+  background-color: var(--bodyBC);
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_live {
+    height: 7.5em !important;
+    // Add spacing between images
+    .slick-slide {
+      margin: 0 5px;
+      height: 7.5em !important;
+      cursor: grab;
+    }
+
+    .slick-list {
+      height: 7.5em !important;
+      margin: 0 0px;
+    }
+    .slick-slider {
+      height: 7.5em !important;
+      overflow: hidden;
+    }
+    .slick-track {
+      height: 7.5em !important;
+      margin-left: 0 !important;
+    }
+  }
+}

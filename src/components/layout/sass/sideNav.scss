@@ -1,0 +1,43 @@
+@import "../../../styles.scss";
+.logo img {
+  width: 48px;
+}
+.nav {
+  height: calc(100% - 48px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  ul {
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    flex-direction: column;
+  }
+  ul li {
+    list-style: none;
+    margin: 10px 0;
+  }
+
+  ul li a {
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    color: var(--SLinkColor);
+    padding: 10px;
+    border-radius: 100px;
+    justify-content: center;
+    display: flex;
+  }
+  ul li a:hover {
+    color: var(--hoverLinkColor);
+  }
+}
+
+/*# sourceMappingURL=sideNav.css.map */
+.active {
+  color: var(--ActiveLinkColor) !important;
+}

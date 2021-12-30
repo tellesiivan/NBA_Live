@@ -1,0 +1,550 @@
+@import "../../../styles.scss";
+.events {
+  height: 100%;
+  width: 100%;
+  background-color: var(--PrimaryC);
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &-content {
+    padding: 10px 5px;
+  }
+  &-upcoming {
+    margin: 1.8em auto;
+
+    &-item {
+      background-color: var(--bodyBC) !important;
+      border-radius: 2px !important;
+    }
+  }
+  &-past {
+    width: 100%;
+    margin: 1.3em auto;
+
+    &-head {
+      margin-bottom: 1em;
+      font-family: var(--BarlowFont);
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 0 10px;
+      align-items: center;
+
+      &-title {
+        font-family: var(--BarlowFont);
+        h4 {
+          font-size: 1em;
+          margin: 0 0 5px 0;
+          color: var(--inverseC);
+        }
+        span {
+          color: var(--calendarTextColor);
+        }
+      }
+      &-btn {
+        flex-direction: row;
+        align-items: center;
+        display: flex;
+        border: none;
+        height: 2em;
+        padding: 0 15px;
+        border-radius: 100px;
+        font-family: inherit;
+        font-weight: 600;
+        background-color: var(--inverseC);
+        color: var(--bodyBC);
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+
+        span {
+          height: 10px;
+          width: 10px;
+          background-color: var(--submitBTNhoverC);
+          margin-right: 10px;
+          border-radius: 100px;
+          transition: all 0.6s ease-in-out;
+        }
+
+        &:hover {
+          background-color: var(--bodyBC);
+          color: var(--inverseC);
+
+          span {
+            background-color: var(--highlightC);
+          }
+        }
+      }
+    }
+    &-item {
+      &-second {
+        padding: 0 !important;
+        background-color: transparent !important ;
+
+        .previous-info-score {
+          width: 100% !important;
+          border-right: none !important;
+          background-color: var(--bodyBC);
+          border-radius: 3px;
+        }
+        .previous-team {
+          margin: 0 !important;
+          padding: 15px 10px !important;
+          &:first-child {
+            border-bottom: var(--calendarBorder);
+          }
+        }
+        .previous-details {
+          margin: 5px 15px !important;
+          text-align: start;
+          color: var(--calendarTextColor);
+        }
+      }
+    }
+  }
+  .selected-next {
+    background-color: var(--playersC) !important;
+    border-radius: 2px !important;
+  }
+  &-top {
+    border-bottom: var(--sideNavBorder);
+    background-color: var(--eventMainBc);
+    z-index: 4;
+    width: 100%;
+  }
+  &-center {
+    background-color: var(--PrimaryC);
+    height: 100%;
+    display: flex;
+    position: relative;
+
+    &-left {
+      transition: all 0.5s ease-in-out;
+      min-width: 100%;
+      min-width: 100%;
+      height: 100%;
+      background-color: var(--eventMainBc);
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+        width: 4px;
+      }
+    }
+    &-right {
+      transition: all 0.5s ease-in-out;
+      transform: translateX(200%);
+      max-width: 450px;
+      position: absolute;
+      z-index: 6;
+      right: 0;
+      opacity: 0;
+
+      height: 100%;
+      flex: 1 auto;
+      background-color: var(--PrimaryC);
+      overflow-y: scroll;
+      padding: 10px 15px;
+      &::-webkit-scrollbar {
+        display: none;
+        width: 4px;
+      }
+      &-close-btn {
+        display: none;
+      }
+    }
+  }
+  &-header {
+    height: 23em;
+    position: relative;
+    background-image: url("https://cdn.vox-cdn.com/thumbor/MBbef8NtpuQd4Rjtd-kzmnOotrA=/1400x788/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/21924371/devine_game_1_preview_getty_ringer.jpg");
+    background-position: top center;
+    background-size: cover;
+    &-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      // background-image: linear-gradient(
+      //   to left,
+      //   var(--dashLeftHeaderColor1),
+      //   #060808a8,
+      //   #060808f2,
+      //   #060808
+      // );
+    }
+  }
+}
+.sticky {
+  top: 0;
+  position: sticky;
+}
+.live {
+  &-score {
+    height: 7.5em;
+    text-align: center;
+    padding: 5px 13px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-right: var(--sideNavBorder);
+    .live {
+      padding: 0px !important;
+    }
+
+    &-item {
+      margin-top: 35px;
+    }
+
+    &-team {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+
+      img {
+        max-width: 28px;
+      }
+      span {
+        margin-top: 8px;
+        font-size: 0.86em;
+        font-family: var(--BarlowFont);
+        color: var(--inverseC);
+      }
+    }
+    &-center {
+      span {
+        font-size: 1em;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        font-family: var(--BarlowFont);
+        color: var(--inverseC);
+      }
+      &-sep {
+        margin: 0 1em;
+      }
+    }
+  }
+  &-events_1 {
+    height: 7.5em !important;
+    // Add spacing between images
+    .slick-slide {
+      margin: 0 0px;
+      height: 7.5em !important;
+      cursor: grab;
+    }
+
+    .slick-list {
+      height: 7.5em !important;
+      margin: 0 0px;
+    }
+    .slick-slider {
+      height: 7.5em !important;
+      overflow: hidden;
+    }
+    .slick-track {
+      height: 7.5em !important;
+      margin-left: 0 !important;
+    }
+  }
+}
+// Games on specified date
+.specific {
+  &-container {
+  }
+  &-header {
+    margin: 5px 0 20px 0;
+    color: var(--inverseC);
+    font-size: 1.1em;
+    font-family: var(--BarlowFont);
+    span {
+      font-weight: 600;
+      color: var(--highlightC) !important;
+    }
+  }
+}
+
+.onDate {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    margin: 1em 0;
+  }
+  &-item {
+    height: 9em;
+    padding: 6px;
+    border-radius: 4px;
+    width: 100%;
+    background-color: var(--eventMainBc);
+    margin: 5px 0;
+    font-family: var(--BarlowFont);
+    position: relative;
+
+    &-top {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 6px;
+      height: 100%;
+    }
+
+    &-actions {
+      display: flex;
+      flex-direction: row;
+      position: absolute;
+      top: 0px;
+      align-items: center;
+      height: 36px;
+      justify-content: center;
+      width: 36px;
+      border-radius: 100px;
+      left: 0px;
+    }
+    &-time {
+      width: 30%;
+      min-width: 100px;
+      height: 100%;
+      border-right: var(--calendarBorder);
+      color: var(--calendarTextColor);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    &-teams {
+      flex: 1 auto;
+      padding: 0px 15px;
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      &-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+          max-width: 30px;
+        }
+        span {
+          color: #505050;
+          margin-top: 10px;
+          font-size: 00.86em;
+        }
+      }
+      &-center {
+        color: var(--inverseC);
+      }
+    }
+  }
+}
+
+// custom styles for calendar
+.calendar {
+  width: 100% !important;
+  border: var(--calendarBorder) !important;
+  border-radius: 6px;
+  background-color: var(--PrimaryC) !important;
+  overflow: hidden !important;
+
+  .react-calendar__navigation {
+    button {
+      font-family: var(--BarlowFont) !important;
+      color: var(--calendarTextColor) !important;
+      font-weight: 600;
+      border-bottom: var(--calendarBorder);
+
+      &:hover {
+        background-color: var(--eventMainBc) !important;
+      }
+    }
+  }
+
+  .react-calendar__viewContainer {
+    font-family: var(--BarlowFont) !important;
+  }
+  .react-calendar__month-view__weekdays__weekday {
+    abbr {
+      text-decoration: none !important;
+      color: var(--inverseC) !important;
+    }
+  }
+  .react-calendar__month-view__days__day--weekend {
+    color: var(--highlightC) !important;
+  }
+  .react-calendar__tile {
+    font-family: var(--BarlowFont) !important;
+    font-weight: 500;
+    color: var(--calendarTextColor) !important;
+    height: 40px;
+
+    &:hover {
+      background-color: transparent !important;
+      color: var(--inverseC) !important;
+    }
+
+    &--active {
+      background-color: transparent !important;
+      color: var(--highlightC) !important;
+      font-weight: 600 !important;
+    }
+    &--now {
+      background-color: transparent !important;
+    }
+  }
+  .react-calendar__month-view__days__day--neighboringMonth {
+    color: var(--playerItemP) !important;
+  }
+}
+
+// Add spacing between images
+.past {
+  &-events {
+    &-item {
+      height: 14em;
+    }
+    .slick-slide {
+      margin: 0 3px;
+      cursor: grab;
+    }
+
+    .slick-list {
+      height: 14em;
+      margin: 0 3px;
+    }
+    .slick-slider {
+      height: 14em;
+      overflow: hidden;
+    }
+    .slick-track {
+      height: 14em;
+    }
+
+    // Move arrows on top of images
+    .slick-prev {
+      left: 0px !important;
+      top: 25% !important;
+      z-index: 3;
+    }
+    .slick-next {
+      top: 25% !important;
+      right: 0px !important;
+    }
+  }
+}
+.upcoming {
+  &-events {
+    &-item {
+      height: 6em;
+    }
+    .slick-slide {
+      margin: 0 3px;
+      cursor: grab;
+    }
+
+    .slick-list {
+      height: 6em;
+      margin: 0 3px;
+    }
+    .slick-slider {
+      height: 6em;
+      overflow: hidden;
+    }
+    .slick-track {
+      margin: 0;
+      height: 6em;
+    }
+
+    // Move arrows on top of images
+    .slick-prev {
+      left: 0px !important;
+      top: 25% !important;
+      z-index: 3;
+    }
+    .slick-next {
+      top: 25% !important;
+      right: 0px !important;
+    }
+  }
+}
+
+// overwrite  default calendar styles
+.chq-atc--button {
+  &:hover,
+  &:focus {
+    background-color: transparent !important;
+  }
+  path {
+    fill: var(--playerItemSPAN) !important;
+  }
+}
+.chq-atc--dropdown {
+  width: fit-content !important;
+  overflow: hidden;
+  border: none !important;
+  left: 25px;
+  background-color: var(--PrimaryC) !important;
+  box-shadow: 0.5px 2.5px 6px 2px var(--skeletonC2) !important;
+
+  a {
+    color: var(--calendarTextColor) !important;
+
+    &:hover {
+      background-color: var(--eventMainBc) !important;
+    }
+  }
+}
+// RESPONSIVE
+
+// Example usage:
+@media (min-width: 1200px) {
+  .events {
+    &-center {
+      &-left {
+        transition: all 0.7s ease-in-out;
+        width: 70%;
+        min-width: 70%;
+      }
+      &-right {
+        position: unset !important;
+        transition: all 0.7s ease-in-out;
+        transform: translateX(0%);
+        min-width: 350px;
+        max-width: unset;
+        opacity: 1;
+      }
+    }
+    &-past {
+      &-head {
+        &-btn {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+// Example usage:
+@media (max-width: 700px) {
+  .events {
+    &-content {
+      padding: 5px 0px 60px 0px;
+    }
+    &-center {
+      &-right {
+        width: 100%;
+        height: 75vh;
+        position: fixed;
+        max-width: unset;
+        border-radius: 20px 20px 0px 0px;
+        bottom: 0;
+        z-index: 100;
+        transform: translateY(200%);
+        transition: all 0.9s ease-in-out;
+
+        &-close-btn {
+          display: block;
+        }
+      }
+    }
+  }
+}
